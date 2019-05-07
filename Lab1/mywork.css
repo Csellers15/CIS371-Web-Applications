@@ -1,0 +1,17 @@
+tr:not(:first-child) td{
+    border-top: 2px solid #ff0000;
+}
+
+tr td:first-child{
+    font-weight: bold;
+}
+
+table{
+    border-spacing: 0;
+    border-top: 3px solid #000000;
+    border-bottom: 3px solid #000000
+}
+
+.topper{
+    vertical-align: top;
+}
