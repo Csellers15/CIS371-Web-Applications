@@ -3,7 +3,6 @@
 #####Description:
 This class is GVSU elective class CIS371 Web App programming. Below is a schedule of the labs and homework assignments due during this class time.
 
-#####Schedule:
 |Assignment|Completed|Due Date|Description|
 |-|-|-|-|
 |[Lab 1](https://github.com/Csellers15/CIS371-Web-Applications/tree/master/Lab1)| Completed on 5/7| 05/09/2019|This was a basic webpage creation|
