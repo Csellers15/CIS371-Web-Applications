@@ -38,6 +38,7 @@ public class WebClient {
         // Step 6a: Create a FileOutputStream for storing the payload
         FileOutputStream fos = new FileOutputStream();
         // Step 6b: Wrap the FileOutputStream in another PrintWriter
+        PrintWriter pw = new PrintWriter(fos);
 
         // Step 7: Read the rest of the input from BufferedReader and write
         //         it to the second PrintWriter.
