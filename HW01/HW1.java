@@ -6,7 +6,6 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
-
 //package edu.gvsu.cis;
 
 public class WebClient {
@@ -23,7 +22,7 @@ public class WebClient {
         PrintWriter printWriter = new PrintWriter(socket.getOutputStream() ,true);
 
         // Step 3: Create a BufferedReader from the socket's input stream
-        BufferedReader in = new BufferedReader(socket.getInputStream());
+        BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
         // Step 4: Send an HTTP GET request via the PrintWriter.
         //         Remember to print the necessary blank line
@@ -31,9 +30,12 @@ public class WebClient {
         printWriter.println("");
         
         // Step 5a: Read the status line of the response
-
-        // Step 5b: Read the HTTP response via the BufferedReader until
+        String headerLine = in.readLine();
+		// Step 5b: Read the HTTP response via the BufferedReader until
         //         you get a blank line
+        while ((headerLine = in.readLine()).length() != 0) {
+        	System.out.println(headerLine);
+        }
 
         // Step 6a: Create a FileOutputStream for storing the payload
         FileOutputStream fos = new FileOutputStream();
@@ -44,6 +46,7 @@ public class WebClient {
         //         it to the second PrintWriter.
         //         Hint: readLine() returns null when there is no more data
         //         to read
+
 
         // Step 8: Remember to close the writer
         printWriter.close();
