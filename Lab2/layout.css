@@ -1,0 +1,91 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+section {
+    margin: 0px;
+    padding: 8px;
+}
+
+a {
+    text-decoration: none; 
+}
+
+#container {
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr 4fr;
+    background: lightblue;
+}
+
+#toolbar, #footer  {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+#toolbar {
+    background-color: aqua;
+    display: flex;
+    flex-direction: row;
+}
+
+#footer {
+    background-color: greenyellow ;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-style: italic;
+    font-size: 15px;
+}
+
+#navpanel {
+    background-color: beige;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.navItem {
+    align-self: center;
+    background-color: white;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+#Navimg{
+    align-self: center;
+    width: 96px;
+    height: 96px;
+}
+
+.navItem:hover {
+    background-color: black;
+}
+
+#main {
+    background-color: white;
+}
+
+.menuItem {
+    margin: 3px;
+    padding: 3px;
+}
+
+.filler {
+    flex-grow: 1;
+}
+
+@media (max-width: 600px) {
+    #navpanel {
+        display: none;
+    }
+
+    #main{
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+}     
