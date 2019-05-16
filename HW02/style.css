@@ -1,0 +1,90 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: medium;
+    color: black;
+}
+
+/* section styling */
+.container{
+    display: grid;
+    grid-template-rows: auto 2fr auto;
+    grid-template-columns: 2fr 4fr;
+}
+
+.intro{
+    padding-bottom: 50px;
+}
+
+.hobbies{
+    background-color: cadetblue;
+    border: 1px solid red;
+}
+
+.inspire{
+    background-color: burlywood;
+    border: 1px solid black;
+}
+
+.activities{
+    background-color: chartreuse;
+    border: 1px solid black;
+}
+
+.classes{
+    background-color: coral;
+    border: 1px solid red;
+}
+
+.links{
+    background-color: darkorange;
+    border: 1px solid red;
+}
+
+.quotes{
+    background-color: beige;
+    border: 1px solid black;
+}
+
+/* image styling */
+#headshot{
+    float: right;
+    margin-left: 50px;
+    margin-bottom: 50px;
+}
+
+#inspireIMG{  
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+}
+
+/* Quote styling */
+.best{
+    font-style: italic;
+}
+
+/* Table Styling */
+table, th, td{
+    border: 1px solid black;
+}
+
+th:nth-child(odd), td:nth-child(odd){
+    text-align: center;
+} 
+tr:nth-child(odd){
+    background-color: lightgray;
+}
+
+tr:nth-child(even){
+    background-color: white;
+}
+
+
+/* Responsive design */
+@media (max-width: 600px) {
+    #container{
+        grid-template-columns: 1fr;
+    }
+}     
+
