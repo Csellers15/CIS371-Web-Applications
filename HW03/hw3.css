@@ -1,0 +1,12 @@
+html, body{
+    background-color: #fcf7ff;
+
+}
+
+tr:nth-child(odd){
+    background-color: #e8e1ef;
+}
+
+tr:nth-child(even){
+    background-color: #f1e9db;
+}
