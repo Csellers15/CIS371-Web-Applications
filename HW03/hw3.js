@@ -4,26 +4,12 @@ el.addEventListener('change', sliderListener);
 function sliderListener(ev) {
     console.log('Slider value is ' + ev.target.value);
 
-
     const elOut = document.getElementById('usercount');
     elOut.innerText = ev.target.value;
 
 
     const ulParent = document.getElementById('mylist');
     const len = Number(ev.target.value); // convert string to number
-
-    // const items = document.querySelectorAll('#mylist > li');
-    // for (let z of items) {
-    //     mylist.removeChild(z);
-    // }
-
-    // for (let k = 0; k < len; k++) {
-    //     const liChild = document.createElement('li');
-    //     const liText = document.createTextNode('Item#' + k);
-    //     liChild.appendChild(liText);
-    //     mylist.appendChild(liChild);
-    // }
-
 
     fetch('https://randomuser.me/api?results='+len)
     .then(r => r.json()) // convert the response 'r' to a JSON object
@@ -65,7 +51,5 @@ function sliderListener(ev) {
             dob.innerHTML = bday;
             photo.innerHTML = ("<img src=" + pic + ">");
         }
-
     });
-
 }
