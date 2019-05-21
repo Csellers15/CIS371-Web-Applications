@@ -10,3 +10,21 @@ tr:nth-child(odd){
 tr:nth-child(even){
     background-color: #f1e9db;
 }
+
+/* Responsive design */
+@media (max-width: 600px) {
+	table, tbody, th, td, tr { 
+		display: block; 
+    }
+    
+    td { 
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+    }
+    
+    tr { 
+        border: 1px solid #ccc; 
+    }
+}     
