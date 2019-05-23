@@ -5,7 +5,7 @@ dbRef.remove();
 const showIndividualCountry = (snapshot) => {
     const country = snapshot.val();
     // Use backquotes (not "forward" quoates) for JS string interpolation
-    var t = document.getElementById("tbl")
+    var t = document.getElementById("tbl");
 
     let cName = country.name;
     let cCode = country.code;
@@ -15,7 +15,10 @@ const showIndividualCountry = (snapshot) => {
 
     var row = t.insertRow();
 
+    row.setAttribute('id', country.name);
+    
     var rOne = row.insertCell(0);
+    
     var rTwo = row.insertCell(1);
     var rThree = row.insertCell(2);
     var rFour = row.insertCell(3);
@@ -31,8 +34,8 @@ const showIndividualCountry = (snapshot) => {
 const whoIsGone = snapshot => {
     const country = snapshot.val();
     
-    const whichRow = tabEl.querySelector(`tr[id='${snapshot.key}']`);
-    tabEl.removeChild(whichRow);
+    const whichRow = tbl.querySelector(`tr[id='${country.name}']`);
+    whichRow.parentNode.removeChild(whichRow);
 }
 
 const updatedChild = snapshot => {
