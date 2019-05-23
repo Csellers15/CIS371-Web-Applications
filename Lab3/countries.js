@@ -5,7 +5,27 @@ dbRef.remove();
 const showIndividualCountry = (snapshot) => {
     const country = snapshot.val();
     // Use backquotes (not "forward" quoates) for JS string interpolation
-    console.log(`Key ${snapshot.key}: ${country.name}`);
+    var t = document.getElementById("tbl")
+
+    let cName = country.name;
+    let cCode = country.code;
+    let cCapital = country.capital;
+    let cPop = country.population;
+    let cRegion = country.region; 
+
+    var row = t.insertRow();
+
+    var rOne = row.insertCell(0);
+    var rTwo = row.insertCell(1);
+    var rThree = row.insertCell(2);
+    var rFour = row.insertCell(3);
+    var rFive = row.insertCell(4);
+
+    rOne.innerHTML = cName;
+    rTwo.innerHTML = cCode;
+    rThree.innerHTML = cCapital;
+    rFour.innerHTML = cPop;
+    rFive.innerHTML = cRegion;
 }
 
 const whoIsGone = snapshot => {
@@ -21,30 +41,7 @@ const updatedChild = snapshot => {
 
 const showData = snapshot => {
     const data = snapshot.val();
-
-    for(key in data){
-        var t = document.getElementById("tbl")
-
-        let cName = data[key].name;
-        let cCode = data[key].code;
-        let cCapital = data[key].capital;
-        let cPop = data[key].population;
-        let cRegion = data[key].region; 
-
-        var row = t.insertRow();
-
-        var rOne = row.insertCell(0);
-        var rTwo = row.insertCell(1);
-        var rThree = row.insertCell(2);
-        var rFour = row.insertCell(3);
-        var rFive = row.insertCell(4);
-
-        rOne.innerHTML = cName;
-        rTwo.innerHTML = cCode;
-        rThree.innerHTML = cCapital;
-        rFour.innerHTML = cPop;
-        rFive.innerHTML = cRegion;
-    }
+    console.log(`Key ${snapshot.key}: ${data}`);
 };
 
 dbRef.on('child_removed', whoIsGone);
