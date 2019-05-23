@@ -67,7 +67,7 @@ dbRef.push().set({
 });
 
 dbRef.push().set({
-    name: "Åland Islands",
+    name: "Aland Islands",
     code: "ALA",
     capital: "Mariehamn",
     population: 28875,
