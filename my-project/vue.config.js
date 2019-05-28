@@ -1,3 +1,3 @@
-export default = {
-    baseUrl: process.env.NODE_ENV === "production" : "/~abcdef/firstvue/" : "/"
-}
+module.export =  {
+    baseUrl: process.env.NODE_ENV === "production" ? "/~abcdef/firstvue/" : "/"
+  }
