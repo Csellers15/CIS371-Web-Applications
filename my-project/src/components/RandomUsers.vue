@@ -5,6 +5,7 @@
             <span class="useritem" v-for="u in users" v-bind:key="u.email">{{u.name.first}} {{u.name.last}} ({{u.email}})</span>
         </div>
 
+        <p> Formatted list of users</p>
         <UserInfo v-for="u in users" v-bind:key="u.email" v-bind:user-data="u"> </UserInfo>
     </div>
 </template>
@@ -43,7 +44,7 @@ export default {
         showData: function (data){
             let array = [];
             data.results.forEach(function (ele){
-                array.push( {name: {first: ele.name.first, last : ele.name.last }, email: ele.email, photo: ele.picture.thumbnail});
+                array.push( {name: {first: ele.name.first, last : ele.name.last }, email: ele.email, photo: ele.picture.thumbnail });
             });
             this.users = array;
         }

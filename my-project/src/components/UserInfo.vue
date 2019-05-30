@@ -1,8 +1,8 @@
 <template>
     <div id="uinfo">
-        <span id="photo"><img src=userData.photo> </span>
-        <span id="name">{{userData.name.first}} {{userData.name.last}}</span>
-        <span id="email">{{userData.email}}</span>
+        <img id="photo" :src=userData.photo>
+        <span id="name"> {{userData.name.first}} {{userData.name.last}}</span>
+        <span id="email"> {{userData.email}} </span>
     </div>
 </template>
 
