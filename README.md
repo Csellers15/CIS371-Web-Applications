@@ -14,10 +14,10 @@ This class is GVSU elective class CIS371 Web App programming. Below is a schedul
 #### Homeworks:
 |HomeWork|Completed|Due Date|Description|
 |-|-|-|-|
-|[Homework 01](https://github.com/Csellers15/CIS371-Web-Applications/tree/master/HW01)|Complete| 05/13/2019|Creating a simple FTP Web Client|
+|[Homework 1](https://github.com/Csellers15/CIS371-Web-Applications/tree/master/HW01)|Complete| 05/13/2019|Creating a simple FTP Web Client|
 |[Homework 2](https://github.com/Csellers15/CIS371-Web-Applications/tree/master/HW02)|Complete| 05/16/2019|HTML and CSS About Me page|
 |[Homework 3](https://github.com/Csellers15/CIS371-Web-Applications/tree/master/HW03)|Complete| 05/24/2019|Accessing Web Services: Creating and API|
-|[Homework 4](https://github.com/Csellers15/CIS371-Web-Applications/tree/master/HW04)|Complete| 05/28/2019|Creating a VeuJS App|
+|[Homework 4](https://github.com/Csellers15/CIS371-Web-Applications/tree/master/HW04/my-project)|Complete| 05/28/2019|Creating a VeuJS App|
 
 #### Semester Project:
 |Project|Completed|Due Date|Description|
