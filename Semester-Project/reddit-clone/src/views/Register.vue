@@ -1,41 +1,35 @@
 <template>
-  <div class="Login">
-      <form id="loginForm">
-        <label for="username"> User Name: </label>
-        <input id ="username" type="text" v-model="userName"/>
-
-        <label for="name"> Name: </label>
-        <input id ="name" type="text" v-model="name"/>
-
-        <label for="password"> Password: </label>
-        <input id ="password" type="text" v-model="password"/>
-
-        <button id="submit" v-on:click="Register()"> Register</button>
-      </form>
+  <div class="sign-up">
+      <p> Lets create a new account </p>
+      <input type="text" v-model="email" placeholder="email"><br>
+      <input type="password" v-model="password" placeholder="password"><br>
+      <button @click="signUp">Sign Up</button>
   </div>
 </template>
 
 <script> 
+import firebase from "../components/firebaseconfig";
+
 export default {
-  data () {
-    return {
-      userName: "",
-      name: "",
-      password: "",
-      level: 0
-    };
-  },
+    name: 'signUp',
+    data () {
+        return {
+            email: '',
+            password: ''
+        }
+    },
 
   methods: {
-    Register(){
-        MYDB.ref("users").push().set({
-          name: this.userName,
-          capital: this.name,
-          region: this.password,
-          level: 0
-        });
+      signUp:function(firebase){
+          firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then( function(user){
+              alert('Your account has been created')
+          },
+          function (err){
+              alert('Opps. ' + err.message)
+          }
+        );
+      }
     }
-  }
   };
 
 </script>

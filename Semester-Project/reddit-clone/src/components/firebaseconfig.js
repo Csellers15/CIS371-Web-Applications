@@ -13,5 +13,3 @@ import "@firebase/database";
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-
-  export const MYDB = firebase.database();
