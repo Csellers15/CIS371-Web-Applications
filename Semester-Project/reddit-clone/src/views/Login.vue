@@ -13,17 +13,27 @@
 </template>
 
 <script> 
+
+import firesbase from '../components/firebaseconfig'
 export default {
-  data () {
+name: 'login',
+data () {
     return {
-      userName: "",
-      password: ""
-    };
-  },
+        email: '',
+        password: ''
+    }
+},
 
   methods: {
-    login(){
-    }
+      login:function(){
+        firebase.auth().loginUserWithEmailAndPassword(this.email, this.email).then( function(user){
+              alert('Your account has been created')
+          },
+          function (err){
+              alert('Opps. ' + err.message)
+          }
+        );
+      }
   }
   };
 
