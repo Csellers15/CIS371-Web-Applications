@@ -8,7 +8,7 @@
 </template>
 
 <script> 
-import { config } from "../components/firebaseconfig";
+import firebase from "../components/firebaseconfig";
 
 export default {
     name: 'signUp',
@@ -21,7 +21,7 @@ export default {
 
   methods: {
       signUp:function(){
-        config.createUserWithEmailAndPassword(this.email, this.password).then( function(user){
+        firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then( function(user){
               alert('Your account has been created')
           },
           function (err){

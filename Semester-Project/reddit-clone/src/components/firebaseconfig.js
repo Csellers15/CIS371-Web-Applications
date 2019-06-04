@@ -1,7 +1,4 @@
-import firebase from "firebase"
-// import firebase from "@firebase/app"
-// require('firebase/auth')
-// require('firebase/database')
+import * as firebase from "firebase"
 import "@firebase/database";
 import "@firebase/auth"
 
@@ -19,10 +16,19 @@ import "@firebase/auth"
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 
-  export const config = {
-    db : firebase.database(),
-    auth : firebase.auth()
-  };
+  export default firebase;
+
+
+  // firebase.auth().createUserWithEmailAndPassword("nodeuser@firebaseui.com", "firebase")
+  //   .then(user => console.log(user))
+  //   .catch(error => console.error(error));
+
+  // export const config = {
+  //   db : firebase.database(),
+  //   auth : firebase.auth()
+  // };
+
+
 
   // export default firebase.initializeApp(firebaseConfig)
 
