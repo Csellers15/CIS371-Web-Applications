@@ -1,10 +1,12 @@
-// import firebase from "firebase"
-import firebase from "@firebase/app"
+import firebase from "firebase"
+// import firebase from "@firebase/app"
+// require('firebase/auth')
+// require('firebase/database')
 import "@firebase/database";
 import "@firebase/auth"
 
   // Your web app's Firebase configuration
-  var firebaseConfig = {
+  const firebaseConfig = {
     apiKey: "AIzaSyDX7hvZXrCOpj50PPPAG4ouIbYh1sQK3Vk",
     authDomain: "reddit-clone-21c35.firebaseapp.com",
     databaseURL: "https://reddit-clone-21c35.firebaseio.com",
