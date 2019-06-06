@@ -1,6 +1,7 @@
-import * as firebase from "firebase"
+import * as firebase from "firebase";
 import "@firebase/database";
-import "@firebase/auth"
+import "@firebase/auth";
+import router from '../router';
 
   // Your web app's Firebase configuration
   const firebaseConfig = {
@@ -16,13 +17,5 @@ import "@firebase/auth"
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 
+
   export default firebase;
-
-  // export const config = {
-  //   db : firebase.database(),
-  //   auth : firebase.auth()
-  // };
-
-  // export default firebase.initializeApp(firebaseConfig)
-
-  // export const MYDB = firebase.database();

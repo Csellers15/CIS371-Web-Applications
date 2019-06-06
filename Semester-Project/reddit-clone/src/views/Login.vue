@@ -1,20 +1,16 @@
 <template>
   <div class="Login">
-      <form id="loginForm">
-        <label for="email"> Email: </label>
-        <input id ="email" type="text" v-model="email"/>
-
-        <label for="password"> Password: </label>
-        <input id ="password" type="password" v-model="password"/>
-
-        <button id="submit" @click="login()"> Login</button>
-      </form>
+    <p> Login into your account </p>
+    <input type="text" v-model="email" placeholder="email"><br>
+    <input type="password" v-model="password" placeholder="password"><br>
+    <button @click="login"> Login </button>
   </div>
 </template>
 
 <script> 
 
 import firebase from "../components/firebaseconfig";
+import router from '../router';
 
 export default {
 name: 'login',
@@ -26,9 +22,10 @@ data () {
 },
 
   methods: {
-      login:function(){
-        firebase.auth().signInWithEmailAndPassword(this.email, this.password).then( function(user){
-              alert('Your account has logged in')
+      login() {
+        firebase.auth().signInWithEmailAndPassword(this.email, this.password).then( (user) => {
+            console.log('made it here');
+            this.$router.push({path: '/', params: user});
           },
           function (err){
               alert('Opps. ' + err.message)
