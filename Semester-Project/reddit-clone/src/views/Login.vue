@@ -4,6 +4,9 @@
     <input type="text" v-model="email" placeholder="email"><br>
     <input type="password" v-model="password" placeholder="password"><br>
     <button @click="login"> Login </button>
+    <div class="register">
+      <router-link to="/register">No account? Register here</router-link>
+    </div>
   </div>
 </template>
 
@@ -16,16 +19,18 @@ export default {
 name: 'login',
 data () {
     return {
+      input:{
         email: '',
-        password: ''
+        password: '',
+      }
     }
 },
 
   methods: {
       login() {
         firebase.auth().signInWithEmailAndPassword(this.email, this.password).then( (user) => {
-            console.log('made it here');
-            this.$router.push({path: '/', params: user});
+            console.log(user.user.email);
+            this.$router.push({path: '/', params: user.user});
           },
           function (err){
               alert('Opps. ' + err.message)
@@ -48,6 +53,10 @@ data () {
   #submit {
     grid-column-start: 1;
     justify-content: center;
+  }
+
+  .register{
+    padding-top: 10px;
   }
 </style>
 
