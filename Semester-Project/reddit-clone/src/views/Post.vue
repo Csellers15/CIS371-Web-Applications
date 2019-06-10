@@ -1,13 +1,15 @@
 <template>
     <div class="postForm">
+        
         <form >
+            <h3> Make a new post: </h3>
             <div>
                 <label for="title">Title: </label>
-                <input type="text" id="title" name="title" v-model="title">
+                <input type="text" id="title" v-model="title">
             </div>
             <div>
                 <label for="post"> Post: </label>
-                <textarea id="post" v-model="post"></textarea>
+                <textarea id="post"  placeholder="body" v-model="post"></textarea>
             </div>
             <div>
                 <button id="post" @click="post"> Post </button>
@@ -18,6 +20,9 @@
 </template>
 
 <script>
+
+import firebase from "../components/firebaseconfig";
+
 export default {
 
 data () {
@@ -27,13 +32,23 @@ data () {
         post: '',
       }
     }
+}, 
+
+methods: {
+    post(){
+        firebase.ref("posts").push().set({
+            title: this.title,
+            post: this.post
+        });
+    }
 }
 
 }
 </script>
 
-<style>
+<style scoped>
     .postForm{
+        text-align: left;
         display: grid;
     }
 
@@ -47,20 +62,19 @@ data () {
     }
 
     label {
-    /* To make sure that all labels have the same size and are properly aligned */
-    display: inline-block;
-    width: 90px;
-    text-align: right;
+        display: inline-block;
+        width: 90px;
+        text-align: left;
     }
 
     input, textarea {
 
-    font: 1em sans-serif;
+        font: 1em sans-serif;
 
-    width: 300px;
-    box-sizing: border-box;
+        width: 300px;
+        box-sizing: border-box;
 
-    border: 1px solid #999;
+        border: 1px solid #999;
     }
 
     input:focus, textarea:focus {
@@ -68,17 +82,9 @@ data () {
     }
 
     textarea {
-    vertical-align: top;
-    height: 5em;
-    }
-
-    .button {
-    padding-left: 90px; 
-    float: left;
-    }
-
-    button {
-    margin-left: .5em;
+        
+        vertical-align: top;
+        height: 5em;
     }
 
 </style>
