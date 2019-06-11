@@ -31,6 +31,7 @@ export default {
   methods: {
     dataHandler(snapshot) {
       this.postData.push(snapshot.val());
+      this.postData.reverse();
     }
   },
 

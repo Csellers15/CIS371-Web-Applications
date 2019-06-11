@@ -95,7 +95,4 @@ textarea {
   vertical-align: top;
   height: 5em;
 }
-
-#submit {
-}
 </style>
