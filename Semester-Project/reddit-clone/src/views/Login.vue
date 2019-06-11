@@ -5,24 +5,22 @@
     <input type="password" v-model="password" placeholder="password"><br>
     <button @click="login"> Login </button>
     <div class="register">
-      <router-link to="/register">No account? Register here</router-link>
+    <p>No account? <router-link to="/register">Register here</router-link></p>
     </div>
   </div>
 </template>
 
 <script> 
 
-import firebase from "../components/firebaseconfig";
-import router from '../router';
+import firebase from "@/components/firebaseconfig";
+import router from '@/router';
 
 export default {
 name: 'login',
 data () {
     return {
-      input:{
-        email: '',
-        password: '',
-      }
+      email: '',
+      password: '',
     }
 },
 
@@ -30,7 +28,7 @@ data () {
       login() {
         firebase.auth().signInWithEmailAndPassword(this.email, this.password).then( (user) => {
             console.log(user.user.email);
-            this.$router.push({path: '/', params: user.user});
+            this.$router.push({path: '/'});
           },
           function (err){
               alert('Opps. ' + err.message)

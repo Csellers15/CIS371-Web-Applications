@@ -8,15 +8,14 @@
 </template>
 
 <script> 
-import firebase from "../components/firebaseconfig";
+import firebase from "@/components/firebaseconfig";
 
 export default {
     name: 'signUp',
     data () {
         return {
             email: '',
-            password: '',
-            user: user
+            password: ''
         }
     },
 

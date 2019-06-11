@@ -1,7 +1,6 @@
 import * as firebase from "firebase";
 import "@firebase/database";
 import "@firebase/auth";
-import router from '../router';
 
   // Your web app's Firebase configuration
   const firebaseConfig = {

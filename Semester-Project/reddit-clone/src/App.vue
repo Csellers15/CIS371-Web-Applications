@@ -1,13 +1,25 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/login">Login</router-link> |
-      <router-link to="/post"> Post </router-link>
-    </div>
+    <NavBar></NavBar>
     <router-view/>
+    <Footer></Footer>
   </div>
 </template>
+
+<script>
+
+import NavBar from "@/components/NavBar"
+import Footer from "@/components/Footer"
+
+export default {
+  components: {
+    NavBar,
+    Footer
+  },
+}
+
+
+</script>
 
 
 <style>
@@ -17,17 +29,8 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+  height: 100%;
+  min-height: 100vh;
+  background-color: #d3d3d3;
 }
 </style>

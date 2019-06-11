@@ -1,18 +1,17 @@
 <template>
     <div class="postForm">
-        
         <form >
             <h3> Make a new post: </h3>
             <div>
                 <label for="title">Title: </label>
-                <input type="text" id="title" v-model="title">
+                <input type="text" id="title"  placeholder="Title" v-model="title">
             </div>
             <div>
-                <label for="post"> Post: </label>
-                <textarea id="post"  placeholder="body" v-model="post"></textarea>
+                <label for="postBody"> Post: </label>
+                <textarea id="postBody"  placeholder="Body" v-model="post"></textarea>
             </div>
             <div>
-                <button id="post" @click="post"> Post </button>
+                <button id="submit" @click.stop.prevent="addPost"> Post </button>
             </div>
 
         </form>
@@ -21,25 +20,27 @@
 
 <script>
 
-import firebase from "../components/firebaseconfig";
+import firebase from "@/components/firebaseconfig";
+import router from '@/router';
 
 export default {
 
 data () {
     return {
-      input:{
         title: '',
-        post: '',
-      }
-    }
+        post: ''
+    };
 }, 
 
 methods: {
-    post(){
-        firebase.ref("posts").push().set({
+    addPost(){
+        firebase.database().ref("posts").push().set({
             title: this.title,
-            post: this.post
+            post: this.post,
+            postTime: Date(firebase.database.ServerValue.TIMESTAMP)
         });
+
+        this.$router.push({path: '/'});
     }
 }
 
@@ -53,12 +54,12 @@ methods: {
     }
 
     form {
-    margin: 0 auto;
-    width: 400px;
+        margin: 0 auto;
+        width: 400px;
     }
 
     form div + div {
-    margin-top: 1em;
+        margin-top: 1em;
     }
 
     label {
@@ -78,13 +79,18 @@ methods: {
     }
 
     input:focus, textarea:focus {
-    border-color: #000;
+        border-color: #000;
     }
 
     textarea {
-        
         vertical-align: top;
         height: 5em;
     }
+
+    #submit {
+
+    }
+
+
 
 </style>
