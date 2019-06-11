@@ -1,96 +1,101 @@
 <template>
-    <div class="postForm">
-        <form >
-            <h3> Make a new post: </h3>
-            <div>
-                <label for="title">Title: </label>
-                <input type="text" id="title"  placeholder="Title" v-model="title">
-            </div>
-            <div>
-                <label for="postBody"> Post: </label>
-                <textarea id="postBody"  placeholder="Body" v-model="post"></textarea>
-            </div>
-            <div>
-                <button id="submit" @click.stop.prevent="addPost"> Post </button>
-            </div>
-
-        </form>
-    </div>
+  <div class="postForm">
+    <form>
+      <h3>Make a new post:</h3>
+      <div>
+        <label for="title">Title:</label>
+        <input type="text" id="title" placeholder="Title" v-model="title">
+      </div>
+      <div>
+        <label for="postBody">Post:</label>
+        <textarea id="postBody" placeholder="Body" v-model="post"></textarea>
+      </div>
+      <div>
+        <button id="submit" @click.stop.prevent="addPost" >Post</button>
+      </div>
+    </form>
+  </div>
 </template>
 
 <script>
-
 import firebase from "@/components/firebaseconfig";
-import router from '@/router';
+import router from "@/router";
+import login from "../views/Login";
 
 export default {
-
-data () {
+  data() {
     return {
-        title: '',
-        post: ''
+      title: "",
+      post: "",
     };
-}, 
+  },
 
-methods: {
-    addPost(){
-        firebase.database().ref("posts").push().set({
-            title: this.title,
-            post: this.post,
-            postTime: Date(firebase.database.ServerValue.TIMESTAMP)
+  components: {
+    login
+  },
+
+  methods: {
+    addPost() {
+      firebase
+        .database()
+        .ref("posts")
+        .push()
+        .set({
+          title: this.title,
+          post: this.post,
+          uId: firebase.auth().currentUser.uid,
+          postTime: Date(firebase.database.ServerValue.TIMESTAMP)
         });
 
-        this.$router.push({path: '/'});
-    }
-}
+        console.log();
 
-}
+      this.$router.push({ path: "/" });
+    }
+  }
+};
 </script>
 
 <style scoped>
-    .postForm{
-        text-align: left;
-        display: grid;
-    }
+.postForm {
+  text-align: left;
+  display: grid;
+}
 
-    form {
-        margin: 0 auto;
-        width: 400px;
-    }
+form {
+  margin: 0 auto;
+  width: 400px;
+}
 
-    form div + div {
-        margin-top: 1em;
-    }
+form div + div {
+  margin-top: 1em;
+}
 
-    label {
-        display: inline-block;
-        width: 90px;
-        text-align: left;
-    }
+label {
+  display: inline-block;
+  width: 90px;
+  text-align: left;
+}
 
-    input, textarea {
+input,
+textarea {
+  font: 1em sans-serif;
 
-        font: 1em sans-serif;
+  width: 300px;
+  box-sizing: border-box;
 
-        width: 300px;
-        box-sizing: border-box;
+  border: 1px solid #999;
+}
 
-        border: 1px solid #999;
-    }
+input:focus,
+textarea:focus {
+  border-color: #000;
+}
 
-    input:focus, textarea:focus {
-        border-color: #000;
-    }
+textarea {
+  vertical-align: top;
+  height: 5em;
+}
 
-    textarea {
-        vertical-align: top;
-        height: 5em;
-    }
-
-    #submit {
-
-    }
-
-
-
+#submit {
+}
 </style>
