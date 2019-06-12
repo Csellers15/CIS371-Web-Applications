@@ -5,6 +5,7 @@ export default {
         firebase.auth().onAuthStateChanged((user) => {
             if(user){
                 this.isAuth = true;
+
             } else {
                 this.isAuth = false;
             }
@@ -13,7 +14,7 @@ export default {
 
     data(){
         return {
-            isAuth: false
+            isAuth: false,
         }
     },
 }

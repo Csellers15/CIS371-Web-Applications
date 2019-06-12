@@ -1,6 +1,10 @@
 <template>
   <div class="postForm">
-    <form>
+    <form class="text-center">
+      <button v-if="!isAuth" class="btn btn-primary"  @click.stop.prevent="redirect" >Log in or Register</button>
+    </form>
+  
+    <form  v-if="isAuth">
       <h3>Make a new post:</h3>
       <div>
         <label for="title">Title:</label>
@@ -20,8 +24,13 @@
 <script>
 import firebase from "@/components/firebaseconfig";
 import router from "@/router";
+import AuthMonitor from '../AuthMonitor';
 
 export default {
+
+  mixins: [AuthMonitor],
+
+
   data() {
     return {
       title: "",
@@ -39,6 +48,9 @@ export default {
         });
 
       this.$router.push({ path: "/" });
+    },
+    redirect(){
+      this.$router.push({ path: "/login" });
     }
   }
 };

@@ -1,5 +1,5 @@
 <template>
-    <div class="chat container" >
+    <div class="chat container">
         <h2 class="text-primary text-center mb-3">Welcome to the Chat Room</h2>
         <h5 v-if="!isAuth" class="text-secondary text-center">Login to have access to the chat room!</h5>
         <div class="card">

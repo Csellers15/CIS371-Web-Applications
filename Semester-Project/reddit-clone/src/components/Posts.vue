@@ -7,36 +7,36 @@
         <p class="card-text"> {{p.post}}</p>
     </div>
 
-    <div class="postInfo card-footer text-muted">s
+    <div class="postInfo card-footer text-muted">
         <p > Writen on: <strong> {{p.postTime}} </strong> </p>
     </div>
+
+
   </div>
 </div>
 </template>
 
 <script>
 
-  import firebase from "@/components/firebaseconfig";
+  import firebase from '../components/firebaseconfig';
   import Login from './Login';
   import AuthMonitor from '../AuthMonitor';
-  
 
 export default {
 
-  mixins:[AuthMonitor],
+  mixins: [AuthMonitor],
   data() {
     return {
-      postData: []
+      postData: [],
     }
   },
 
   methods: {
-    dataHandler(snapshot) {
+    dataHandler (snapshot) {
       this.postData.push({fbKey: snapshot.key, ...snapshot.val()});
       this.postData.reverse();
     }
   },
-
   mounted() {
     firebase.database().ref("posts").on("child_added", this.dataHandler);
   },
