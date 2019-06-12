@@ -20,7 +20,6 @@
 <script>
 import firebase from "@/components/firebaseconfig";
 import router from "@/router";
-import login from "../views/Login";
 
 export default {
   data() {
@@ -30,24 +29,14 @@ export default {
     };
   },
 
-  components: {
-    login
-  },
-
   methods: {
     addPost() {
-      firebase
-        .database()
-        .ref("posts")
-        .push()
-        .set({
+      firebase.database().ref("posts").push().set({
           title: this.title,
           post: this.post,
           uId: firebase.auth().currentUser.uid,
           postTime: Date(firebase.database.ServerValue.TIMESTAMP)
         });
-
-        console.log();
 
       this.$router.push({ path: "/" });
     }

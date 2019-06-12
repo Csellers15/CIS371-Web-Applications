@@ -2,7 +2,6 @@ import firebase from './components/firebaseconfig'
 export default {
     
     mounted() {
-        console.log(firebase.auth().currentUser);
         firebase.auth().onAuthStateChanged((user) => {
             if(user){
                 this.isAuth = true;
@@ -10,11 +9,11 @@ export default {
                 this.isAuth = false;
             }
         });
-      },
+    },
 
-      data(){
+    data(){
         return {
             isAuth: false
         }
-      },
+    },
 }

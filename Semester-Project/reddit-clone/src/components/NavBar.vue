@@ -1,11 +1,13 @@
 <template>
     <div>
       <div id="nav">
-      <router-link to="/">Home</router-link>
-      <span v-if='!isAuth'> | </span> 
-      <router-link to="/login" v-if="!isAuth"> Login</router-link> 
-      <span v-if='isAuth'> | </span> 
-      <router-link to="/post" v-if="isAuth"> Post</router-link>
+        <router-link to="/">Home</router-link>
+        <span v-if='!isAuth'> | </span> 
+        <router-link to="/login" v-if="!isAuth"> Login</router-link> 
+        <span v-if='isAuth'> | </span> 
+        <router-link to="/post" v-if="isAuth"> Post</router-link>
+        <span> | </span> 
+        <router-link to="/chat"> Chat </router-link>
       </div>
       <button @click="logout" v-if="isAuth"> Logout </button>
     </div>

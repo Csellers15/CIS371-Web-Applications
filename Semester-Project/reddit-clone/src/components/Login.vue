@@ -1,14 +1,14 @@
 <template>
 
- <div class="Login">
-    <p> Login into your account </p>
-    <input type="text" v-model="email" placeholder="email"><br>
-    <input type="password" v-model="password" placeholder="password"><br>
-    <button @click="login"> Login </button>
-    <div class="register">
-    <p>No account? <router-link to="/register">Register here</router-link></p>
+    <div class="Login">
+        <p> Login into your account </p>
+        <input type="text" v-model="email" placeholder="email"><br>
+        <input type="password" v-model="password" placeholder="password"><br>
+        <button @click="login"> Login </button>
+        <div class="register">
+            <p>No account? <router-link to="/register">Register here</router-link></p>
+        </div>
     </div>
-  </div>
     
 </template>
 
@@ -21,19 +21,18 @@ export default {
 
 data () {
     return {
-      email: "",
-      password: "",
+        email: "",
+        password: "",
     }
 },
 
 methods: {
     login() {
         firebase.auth().signInWithEmailAndPassword(this.email, this.password).then( (user) => {
-                console.log(firebase.auth().currentUser.uid);
                 this.$router.push({path: '/'}); 
             },
             function (err){
-                alert('Opps. ' + err.message);s
+                alert('Opps. ' + err.message);
             }
         );
     }
