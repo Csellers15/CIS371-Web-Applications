@@ -8,8 +8,9 @@
         <router-link to="/post" v-if="isAuth"> Post</router-link>
         <span> | </span> 
         <router-link to="/chat"> Chat </router-link>
+        <span v-if='isAuth'> | </span> 
+        <a v-if='isAuth' href="#" @click="logout"> logout </a>
       </div>
-      <button @click="logout" v-if="isAuth"> Logout </button>
     </div>
 </template>
 

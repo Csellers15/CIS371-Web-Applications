@@ -1,6 +1,11 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
+    <div class="container">
+      <div class="jumbotron">
+        <h1> Welcome to our Blog Site</h1>
+      </div>
+    </div>
+    
     <Posts></Posts>
   </div>
 </template>

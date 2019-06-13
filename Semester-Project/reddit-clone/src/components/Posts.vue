@@ -1,7 +1,7 @@
 <template>
 <div class="container">
   <button type="submit" id="filterBtn" v-if="isAuth" @click="filter" value="Show Only My Posts"> Show only my posts  </button>
-  <div class="posts card mt-5" v-for="p in postData" v-bind:key="p.id">
+  <div class="posts card mt-5 mb-5" v-for="p in postData" v-bind:key="p.id">
     <h2 class="card-header"> {{p.title}}</h2>
 
     <div class="card-body">
@@ -11,11 +11,6 @@
     <div class="postInfo card-footer text-muted">
         <p > Writen on: <strong> {{p.postTime}} </strong> </p>
     </div>
-
-    <div class="postInfo card-footer text-muted" v-if="(isAuth) && (p.uId === usrPost)">
-      <button type="submit"  @click="removeMe(p.fbKey)"> Delete </button>
-    </div>  
-
 
   </div>
 </div>
@@ -33,15 +28,18 @@ export default {
   data() {
     return {
       postData: [],
-      usrPost: firebase.auth().currentUser.uid
+      usrPost: ''
     }
   },
 
   methods: {
     dataHandler (snapshot) {
-      
       this.postData.push({fbKey: snapshot.key, ...snapshot.val()});
       this.postData.reverse();
+
+      if(this.isAuth){
+        this.usrPost = firebase.auth().currentUser.uid
+      }
     },
 
     filter: function(){
@@ -62,11 +60,6 @@ export default {
         this.postData = [];
         firebase.database().ref("posts").on("child_added", this.dataHandler);
       }
-    }, 
-
-    removeMe(aKey){
-      console.log("About to remove one record from Firebase ", aKey);
-      this.postData.splice(this.postData.indexOf(aKey) + 1, 1);
     },
   },
   mounted() {
@@ -85,6 +78,5 @@ p {
 .commentSection{ 
   background-color:darkturquoise;
 }
-
 
 </style>

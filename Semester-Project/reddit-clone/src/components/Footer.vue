@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <p> This is our footer</p>
+    <p> CIS371 Semester Project: Reddit Clone</p> 
   </div>
 </template>
 
@@ -12,10 +12,11 @@ export default {
 
 <style scoped>
   .footer {
-
-    position: relative;
-    margin-top: 40px;
+    position: fixed;
     bottom: 0;
+    left: 0;
+    right: 0;
+    margin-top: 40px;
     width: 100%;
     height: 50px;
     width: 100%;
