@@ -12,6 +12,10 @@
         <p > Writen on: <strong> {{p.postTime}} </strong> </p>
     </div>
 
+    <div class="postInfo card-footer text-muted" v-if="(isAuth) && (p.uId === usrPost)">
+      <button type="submit"  @click="removeMe(p.fbKey)"> Delete </button>
+    </div>  
+
 
   </div>
 </div>
@@ -29,6 +33,7 @@ export default {
   data() {
     return {
       postData: [],
+      usrPost: firebase.auth().currentUser.uid
     }
   },
 
@@ -57,7 +62,12 @@ export default {
         this.postData = [];
         firebase.database().ref("posts").on("child_added", this.dataHandler);
       }
-    }
+    }, 
+
+    removeMe(aKey){
+      console.log("About to remove one record from Firebase ", aKey);
+      this.postData.splice(this.postData.indexOf(aKey) + 1, 1);
+    },
   },
   mounted() {
     firebase.database().ref("posts").on("child_added", this.dataHandler);
